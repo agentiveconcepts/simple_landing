@@ -172,7 +172,8 @@
       { "label": "Services", "href": "/" },
       { "label": "Blog", "href": "/" },
       { "label": "FAQs", "href": "/" },
-      { "label": "Contact", "href": "/contact" }
+      { "label": "Contact", "href": "/contact" },
+      { "label": "Privacy", "href": "/privacy" }
     ],
     "socials": [
       { "icon": "FacebookIcon", "href": "/" },
@@ -180,6 +181,45 @@
       { "icon": "TwitterIcon", "href": "/" },
       { "icon": "GithubIcon", "href": "/" }
     ]
+  },
+  "privacyData": {
+    "intro": "At Luna Landing, your data is your property. We only collect what is strictly necessary to provide our service.",
+    "lastUpdated": "January 1, 2026",
+    "sections": [
+      {
+        "title": "Data Collection",
+        "body": "We collect your Name and Email via our contact form — nothing more. We do not use persistent tracking cookies, fingerprinting, or dark patterns designed to manipulate your consent. Every piece of data we hold has a clear and declared purpose."
+      },
+      {
+        "title": "Your 2026 Rights",
+        "items": [
+          {
+            "right": "Right to Erasure",
+            "detail": "You can request a total scrubbing of your data at any time. Send us a deletion request and we will purge every record tied to your identity within 30 days — no questions asked."
+          },
+          {
+            "right": "Historical Access",
+            "detail": "You have the right to access any data collected since January 1, 2022. We will provide a full export of your data within 14 days of a verified request."
+          },
+          {
+            "right": "No Automated Decisions",
+            "detail": "We do not use AI agents or automated systems to make binding legal or financial decisions about you. Every consequential decision involves a human in the loop."
+          }
+        ]
+      },
+      {
+        "title": "How We Protect Your Data",
+        "body": "Data is encrypted in transit and at rest. We do not sell, rent, or share your data with third parties for commercial purposes. We use minimal, privacy-respecting analytics with no cross-site tracking."
+      },
+      {
+        "title": "Changes to This Policy",
+        "body": "If we make material changes to this policy, we will notify you by email at least 30 days before they take effect. You always have the right to opt out and request deletion before any new terms apply to your data."
+      }
+    ],
+    "contact": {
+      "label": "Privacy questions?",
+      "email": "stephan@agentiveconcepts.com"
+    }
   },
   "contactData": {
     "hero": {

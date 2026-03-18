@@ -8,6 +8,7 @@ export interface LandingPageData {
   pricingData: PricingData;
   footerData: FooterData;
   contactData: ContactData;
+  privacyData: PrivacyData;
 }
 
 export interface HeaderData {
@@ -142,6 +143,22 @@ export interface ContactSocial {
   label: string;
   icon: string;
   href: string;
+}
+
+export interface PrivacySection {
+  title: string;
+  body?: string;
+  items?: { right: string; detail: string }[];
+}
+
+export interface PrivacyData {
+  intro: string;
+  lastUpdated: string;
+  sections: PrivacySection[];
+  contact: {
+    label: string;
+    email: string;
+  };
 }
 
 export type Icon =
