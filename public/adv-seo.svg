@@ -1,0 +1,150 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <linearGradient id="seoBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#CCFF00;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#B8EE00;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="arrowGlass" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2A2A2A;stop-opacity:1" />
+      <stop offset="40%" style="stop-color:#444444;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#111111;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="arrowGlassLight" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#666666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#222222;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="neonCore" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" style="stop-color:#CCFF00;stop-opacity:0.9" />
+      <stop offset="50%" style="stop-color:#EEFF55;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FFFFFF;stop-opacity:0.8" />
+    </linearGradient>
+    <linearGradient id="cubeWhite" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFFFFF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#DDDDDD;stop-opacity:1" />
+    </linearGradient>
+    <filter id="neonGlowStrong">
+      <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="subtleShadow">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#000000" flood-opacity="0.3"/>
+    </filter>
+    <filter id="cubeShadow">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#000000" flood-opacity="0.2"/>
+    </filter>
+    <filter id="glassReflect">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background: Neon Yellow (matching the card panel) -->
+  <rect width="800" height="600" fill="url(#seoBg)"/>
+
+  <!-- Subtle dot grid on neon -->
+  <g fill="#000000" opacity="0.06">
+    <circle cx="100" cy="100" r="2"/><circle cx="200" cy="100" r="2"/><circle cx="300" cy="100" r="2"/>
+    <circle cx="400" cy="100" r="2"/><circle cx="500" cy="100" r="2"/><circle cx="600" cy="100" r="2"/>
+    <circle cx="700" cy="100" r="2"/>
+    <circle cx="100" cy="200" r="2"/><circle cx="200" cy="200" r="2"/><circle cx="300" cy="200" r="2"/>
+    <circle cx="400" cy="200" r="2"/><circle cx="500" cy="200" r="2"/><circle cx="600" cy="200" r="2"/>
+    <circle cx="700" cy="200" r="2"/>
+    <circle cx="100" cy="300" r="2"/><circle cx="200" cy="300" r="2"/><circle cx="300" cy="300" r="2"/>
+    <circle cx="400" cy="300" r="2"/><circle cx="500" cy="300" r="2"/><circle cx="600" cy="300" r="2"/>
+    <circle cx="700" cy="300" r="2"/>
+    <circle cx="100" cy="400" r="2"/><circle cx="200" cy="400" r="2"/><circle cx="300" cy="400" r="2"/>
+    <circle cx="400" cy="400" r="2"/><circle cx="500" cy="400" r="2"/><circle cx="600" cy="400" r="2"/>
+    <circle cx="700" cy="400" r="2"/>
+    <circle cx="100" cy="500" r="2"/><circle cx="200" cy="500" r="2"/><circle cx="300" cy="500" r="2"/>
+    <circle cx="400" cy="500" r="2"/><circle cx="500" cy="500" r="2"/><circle cx="600" cy="500" r="2"/>
+    <circle cx="700" cy="500" r="2"/>
+  </g>
+
+  <!-- === ASCENDING ARROW STRUCTURE (isometric) === -->
+  <!-- Base / shaft of arrow - black metal body -->
+  <!-- Step 1 (lowest, leftmost) -->
+  <polygon points="200,490 280,490 280,430 200,430" fill="url(#arrowGlass)" filter="url(#subtleShadow)"/>
+  <polygon points="200,430 230,412 310,412 280,430" fill="#3A3A3A"/>
+  <polygon points="280,430 310,412 310,452 280,490" fill="#111111"/>
+
+  <!-- Step 2 -->
+  <polygon points="280,490 360,490 360,370 280,370" fill="url(#arrowGlass)"/>
+  <polygon points="280,370 310,352 390,352 360,370" fill="#3A3A3A"/>
+  <polygon points="360,370 390,352 390,472 360,490" fill="#111111"/>
+
+  <!-- Step 3 -->
+  <polygon points="360,490 440,490 440,310 360,310" fill="url(#arrowGlass)"/>
+  <polygon points="360,310 390,292 470,292 440,310" fill="#3A3A3A"/>
+  <polygon points="440,310 470,292 470,472 440,490" fill="#111111"/>
+
+  <!-- Step 4 (arrowhead base) -->
+  <polygon points="440,490 520,490 520,250 440,250" fill="url(#arrowGlass)"/>
+  <polygon points="440,250 470,232 550,232 520,250" fill="#3A3A3A"/>
+  <polygon points="520,250 550,232 550,472 520,490" fill="#111111"/>
+
+  <!-- === ARROWHEAD (pointing up-right) === -->
+  <!-- Left wing -->
+  <polygon points="380,230 440,250 440,175" fill="#222222"/>
+  <!-- Right wing -->
+  <polygon points="560,230 500,250 500,175" fill="#0A0A0A"/>
+  <!-- Top tip -->
+  <polygon points="380,230 470,165 560,230 500,250 440,250" fill="url(#arrowGlass)" filter="url(#subtleShadow)"/>
+  <!-- Arrowhead top face -->
+  <polygon points="380,230 410,215 500,215 470,230" fill="#3A3A3A"/>
+
+  <!-- === NEON GLOWING CORE (vertical stripe up the center of arrow) === -->
+  <rect x="398" y="170" width="12" height="320" fill="url(#neonCore)" filter="url(#neonGlowStrong)" opacity="0.9"/>
+  <!-- Inner bright core -->
+  <rect x="402" y="170" width="4" height="320" fill="#FFFFFF" opacity="0.6" filter="url(#neonGlowStrong)"/>
+
+  <!-- Horizontal glow slices (energy bands) -->
+  <rect x="200" y="428" width="280" height="2" fill="#CCFF00" opacity="0.7" filter="url(#neonGlowStrong)"/>
+  <rect x="200" y="368" width="240" height="2" fill="#CCFF00" opacity="0.6" filter="url(#neonGlowStrong)"/>
+  <rect x="200" y="308" width="200" height="2" fill="#CCFF00" opacity="0.5" filter="url(#neonGlowStrong)"/>
+  <rect x="200" y="248" width="170" height="2" fill="#CCFF00" opacity="0.4" filter="url(#neonGlowStrong)"/>
+
+  <!-- === FLOATING DATA CUBES (white, right side) === -->
+  <!-- Cube 1 - large -->
+  <polygon points="580,290 640,290 640,350 580,350" fill="url(#cubeWhite)" opacity="0.92" filter="url(#cubeShadow)"/>
+  <polygon points="580,290 610,270 670,270 640,290" fill="#FFFFFF" opacity="0.95"/>
+  <polygon points="640,290 670,270 670,330 640,350" fill="#CCCCCC" opacity="0.9"/>
+
+  <!-- Cube 2 - medium -->
+  <polygon points="610,200 655,200 655,245 610,245" fill="url(#cubeWhite)" opacity="0.85" filter="url(#cubeShadow)"/>
+  <polygon points="610,200 632,187 677,187 655,200" fill="#FFFFFF" opacity="0.9"/>
+  <polygon points="655,200 677,187 677,232 655,245" fill="#CCCCCC" opacity="0.85"/>
+
+  <!-- Cube 3 - small floating high -->
+  <polygon points="640,130 672,130 672,162 640,162" fill="url(#cubeWhite)" opacity="0.75" filter="url(#cubeShadow)"/>
+  <polygon points="640,130 656,120 688,120 672,130" fill="#FFFFFF" opacity="0.8"/>
+  <polygon points="672,130 688,120 688,152 672,162" fill="#DDDDDD" opacity="0.75"/>
+
+  <!-- Cube 4 - tiny far left floating -->
+  <polygon points="130,220 158,220 158,248 130,248" fill="url(#cubeWhite)" opacity="0.7" filter="url(#cubeShadow)"/>
+  <polygon points="130,220 144,212 172,212 158,220" fill="#FFFFFF" opacity="0.75"/>
+  <polygon points="158,220 172,212 172,240 158,248" fill="#DDDDDD" opacity="0.7"/>
+
+  <!-- Cube 5 - tiny top left -->
+  <polygon points="155,140 176,140 176,161 155,161" fill="url(#cubeWhite)" opacity="0.6"/>
+  <polygon points="155,140 165,133 186,133 176,140" fill="#FFFFFF" opacity="0.65"/>
+  <polygon points="176,140 186,133 186,154 176,161" fill="#DDDDDD" opacity="0.6"/>
+
+  <!-- === NEON SPARK AT ARROWHEAD TIP === -->
+  <circle cx="470" cy="160" r="10" fill="#CCFF00" opacity="0.9" filter="url(#neonGlowStrong)"/>
+  <circle cx="470" cy="160" r="5" fill="#FFFFFF" opacity="0.95" filter="url(#neonGlowStrong)"/>
+  <!-- Spark rays -->
+  <g stroke="#CCFF00" stroke-width="2" opacity="0.8" filter="url(#neonGlowStrong)">
+    <line x1="470" y1="140" x2="470" y2="128"/>
+    <line x1="490" y1="148" x2="500" y2="138"/>
+    <line x1="450" y1="148" x2="440" y2="138"/>
+    <line x1="495" y1="165" x2="510" y2="165"/>
+    <line x1="445" y1="165" x2="430" y2="165"/>
+  </g>
+
+</svg>
