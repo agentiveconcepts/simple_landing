@@ -14,30 +14,43 @@ interface Props {
 const { data } = Astro.props;
 ---
 
-<section id="services-section" class="w-full flex flex-col py-32 gap-y-16 bg-white px-8 md:px-24">
-  <div class="flex flex-col gap-y-4 max-w-2xl">
-    <p class="text-xs font-bold uppercase tracking-[0.2em] text-primary">What We Can Do</p>
-    <SectionTitle class="text-4xl md:text-6xl font-black tracking-tighter text-gray-900 text-left">
-      {data.title}
-    </SectionTitle>
+<section id="services-section" class="w-full bg-black text-white py-32 px-8 md:px-24">
+  <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-8 mb-16">
+    <div class="flex flex-col gap-y-4 max-w-2xl">
+      <p class="text-xs font-bold uppercase tracking-[0.2em] text-primary">What We Can Do</p>
+      <SectionTitle class="text-4xl md:text-6xl font-black tracking-tighter text-white text-left">
+        {data.title}
+      </SectionTitle>
+    </div>
+    <p class="text-white/50 max-w-xs text-sm leading-relaxed md:text-right">
+      Explore our full range of services designed to elevate your digital presence.
+    </p>
   </div>
-  <div class="grid md:grid-cols-2 gap-6">
+
+  <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-px bg-white/10 border border-white/10 rounded-3xl overflow-hidden">
     {
-      data.services.map((service) => (
-        <article class="group flex flex-col gap-y-6 p-10 bg-gray-50 rounded-3xl border border-gray-100 hover:border-primary hover:bg-white hover:shadow-xl transition-all">
-          <div>
+      data.services.map((service, idx) => (
+        <article class={`group flex flex-col gap-y-6 p-8 bg-black hover:bg-white/5 transition-colors ${idx < data.services.length - 1 ? "" : ""}`}>
+          <div class="flex items-start justify-between">
             <IconWrapper>
               <Icon icon={service.icon as IconType} />
             </IconWrapper>
+            <span class="text-white/20 text-xs font-bold font-mono">0{idx + 1}</span>
           </div>
-          <section>
-            <h3 class="text-2xl font-black tracking-tight md:text-3xl mb-3 text-gray-900">
+          <div class="flex-1">
+            <h3 class="text-xl font-black tracking-tight mb-3 text-white">
               {service.title}
             </h3>
-            <p class="text-gray-900/70 md:text-base leading-relaxed">
+            <p class="text-white/50 text-sm leading-relaxed line-clamp-3">
               {service.description}
             </p>
-          </section>
+          </div>
+          <a href="#" class="flex items-center gap-x-2 text-xs font-bold uppercase tracking-widest text-white/40 group-hover:text-primary transition-colors">
+            View Details
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform">
+              <path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" />
+            </svg>
+          </a>
         </article>
       ))
     }

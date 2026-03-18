@@ -7,6 +7,7 @@ import Header from "@/sections/Header.astro";
 import Hero from "@/sections/Hero.astro";
 import Pricing from "@/sections/Pricing.astro";
 import Services from "@/sections/Services.astro";
+import Marquee from "@/components/Marquee.astro";
 import { getLandingData } from "@/services/data.service";
 
 const data = await getLandingData();
@@ -16,6 +17,7 @@ const data = await getLandingData();
   <Header data={data.headerData} />
   <main class="flex flex-col w-full">
     <Hero data={data.heroData} />
+    <Marquee />
     <Brands data={data.brandsData} />
     <Services data={data.servicesData} />
     <Adventajes data={data.adventajesData} />

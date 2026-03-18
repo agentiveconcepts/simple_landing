@@ -1,6 +1,4 @@
 ---
-import Icon from "@/components/Icon.astro";
-import IconWrapper from "@/components/IconWrapper.astro";
 import { ASSET_PREFIX } from "@/config/constants";
 import type { Adventaje } from "@/config/landing.interface";
 
@@ -12,26 +10,41 @@ interface Props {
 const { data, reversed } = Astro.props;
 ---
 
-<article
-  class=`flex justify-between gap-x-16 flex-col mb-24 md:mb-32 ${reversed ? "md:flex-row-reverse" : "md:flex-row"} items-center`
->
-  <div class="md:w-3/4">
-    <img src={ASSET_PREFIX + data.img} alt={data.imageAlt} class="w-full rounded-3xl shadow-xl" />
+<article class={`flex flex-col ${reversed ? "md:flex-row-reverse" : "md:flex-row"} min-h-[520px] mb-6 rounded-3xl overflow-hidden`}>
+  <div class="md:w-1/2 relative overflow-hidden min-h-[300px] md:min-h-0">
+    <img
+      src={ASSET_PREFIX + data.img}
+      alt={data.imageAlt}
+      class="w-full h-full object-cover object-center"
+    />
   </div>
-  <div class="flex flex-col md:w-5/6 gap-y-6">
-    <h3 class="text-3xl font-black tracking-tight md:text-5xl text-gray-900">{data.title}</h3>
-    <p class="md:text-xl text-gray-900/80 leading-relaxed">{data.description}</p>
-    <ul class="flex flex-col gap-y-6 mt-4">
+
+  <div class="md:w-1/2 bg-primary flex flex-col justify-center gap-y-6 px-10 py-14 md:px-14">
+    <h3 class="text-3xl md:text-4xl font-black tracking-tighter text-black leading-tight">
+      {data.title}
+    </h3>
+    <p class="text-black/70 leading-relaxed text-base">
+      {data.description}
+    </p>
+    <ul class="flex flex-col gap-y-4 mt-2">
       {
         data.checks.map((check) => (
-          <li class="flex flex-row items-center gap-x-4 md:text-xl font-semibold text-gray-900">
-            <IconWrapper>
-              <Icon icon="CheckIcon" />
-            </IconWrapper>
-            {check}
+          <li class="flex items-center gap-x-4">
+            <div class="w-6 h-6 rounded-full bg-black flex items-center justify-center shrink-0">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-3.5 h-3.5 text-primary">
+                <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
+              </svg>
+            </div>
+            <span class="font-bold text-black text-sm uppercase tracking-wider">{check}</span>
           </li>
         ))
       }
     </ul>
+    <a href="#" class="flex items-center gap-x-2 text-xs font-black uppercase tracking-widest text-black/60 hover:text-black transition-colors mt-4">
+      Learn More
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4">
+        <path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" />
+      </svg>
+    </a>
   </div>
 </article>
