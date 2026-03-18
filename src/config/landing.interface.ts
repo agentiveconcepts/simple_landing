@@ -7,8 +7,24 @@ export interface LandingPageData {
   brandsData: BrandsData;
   pricingData: PricingData;
   footerData: FooterData;
+  aboutData: AboutData;
   contactData: ContactData;
   privacyData: PrivacyData;
+}
+
+export interface AboutData {
+  hero: {
+    title: string;
+    subTitle: string;
+  };
+  mission: {
+    title: string;
+    text: string;
+  };
+  values: {
+    title: string;
+    description: string;
+  }[];
 }
 
 export interface HeaderData {

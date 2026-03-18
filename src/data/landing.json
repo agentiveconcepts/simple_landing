@@ -26,7 +26,7 @@
   "headerData": {
     "logo": "THE GOATt",
     "links": [
-      { "label": "About", "href": "#" },
+      { "label": "About", "href": "/about" },
       { "label": "Services", "href": "#" },
       { "label": "Prices", "href": "#" },
       { "label": "FAQs", "href": "#" },
@@ -168,7 +168,7 @@
     "logo": "Luna Landing",
     "description": "Discover the Beauty of the Cosmos: Explore the Infinite Wonders of Space with Us",
     "links": [
-      { "label": "About", "href": "/" },
+      { "label": "About", "href": "/about" },
       { "label": "Services", "href": "/" },
       { "label": "Blog", "href": "/" },
       { "label": "FAQs", "href": "/" },
@@ -220,6 +220,30 @@
       "label": "Privacy questions?",
       "email": "stephan@agentiveconcepts.com"
     }
+  },
+  "aboutData": {
+    "hero": {
+      "title": "We Build Digital Empires.",
+      "subTitle": "A collective of designers, engineers, and strategists."
+    },
+    "mission": {
+      "title": "Our Mission",
+      "text": "To engineer high-performance digital experiences that command attention and drive relentless growth. We don't build websites — we build weapons for market dominance. Every pixel, every millisecond, every line of code is optimized to outperform the competition."
+    },
+    "values": [
+      {
+        "title": "Radical Transparency",
+        "description": "No black boxes. No hidden fees. No bullshit. You see exactly where every dollar goes and every decision made on your behalf."
+      },
+      {
+        "title": "Uncompromising Quality",
+        "description": "We ship nothing we wouldn't stake our reputation on. Every deliverable goes through rigorous internal review before it ever reaches your eyes."
+      },
+      {
+        "title": "Built for Speed",
+        "description": "Speed is a feature. Sub-second load times, rapid iteration cycles, and decisive action — because the market waits for no one."
+      }
+    ]
   },
   "contactData": {
     "hero": {
