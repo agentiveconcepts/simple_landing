@@ -10,10 +10,13 @@ interface Props {
 const { data } = Astro.props;
 ---
 
-<section id="adventajes-section" class="flex flex-col py-32 gap-y-16 bg-white">
-  <SectionTitle>
-    {data.title}
-  </SectionTitle>
+<section id="adventajes-section" class="flex flex-col py-32 gap-y-16 bg-white px-8 md:px-24">
+  <div class="flex flex-col gap-y-4 max-w-2xl">
+    <p class="text-xs font-bold uppercase tracking-[0.2em] text-primary">Key Benefits</p>
+    <SectionTitle class="text-4xl md:text-6xl font-black tracking-tighter text-gray-900 text-left">
+      {data.title}
+    </SectionTitle>
+  </div>
   <div>
     {
       data.adventajes.map((adventaje, idx) => (

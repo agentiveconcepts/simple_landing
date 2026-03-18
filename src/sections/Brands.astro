@@ -1,7 +1,6 @@
 ---
 import Action from "@/components/Action.astro";
 import Icon from "@/components/Icon.astro";
-import SectionTitle from "@/components/SectionTitle.astro";
 import type { BrandsData, Icon as IconType } from "@/config/landing.interface";
 
 interface Props {
@@ -11,27 +10,22 @@ interface Props {
 const { data } = Astro.props;
 ---
 
-<section
-  class="flex flex-col justify-between gap-y-12 md:gap-y-0 md:gap-x-12 md:flex-row py-32 w-full bg-gray-50"
->
-  <div class="w-11/12 flex flex-col gap-y-6">
-    <SectionTitle>
-      {data.title}
-    </SectionTitle>
-    <p class="text-lg text-center md:text-start md:text-xl text-gray-900/80 leading-relaxed">
-      {data.description}
-    </p>
-  </div>
-  <div
-    class="grid grid-cols-2 md:grid-cols-3 gap-8 w-full justify-items-center"
-  >
+<section class="w-full bg-white py-14 border-y border-gray-100">
+  <p class="text-xs font-bold uppercase tracking-[0.2em] text-gray-900/40 text-center mb-10">
+    {data.title}
+  </p>
+  <div class="flex flex-wrap justify-center items-center gap-x-12 gap-y-6 px-8">
     {
       data.brands.map((brand) => (
-        <div class="md:grayscale hover:grayscale-0 hover:scale-110 transition-all">
-          <Action as="a" href={brand.href} title={brand.icon} target="_blank">
-            <Icon icon={brand.icon as IconType} />
-          </Action>
-        </div>
+        <Action
+          as="a"
+          href={brand.href}
+          title={brand.label}
+          target="_blank"
+          class="opacity-40 grayscale hover:opacity-100 hover:grayscale-0 hover:scale-110 transition-all"
+        >
+          <Icon icon={brand.icon as IconType} />
+        </Action>
       ))
     }
   </div>

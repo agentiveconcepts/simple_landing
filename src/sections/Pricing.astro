@@ -1,6 +1,5 @@
 ---
 import Action from "@/components/Action.astro";
-import Card from "@/components/Card.astro";
 import Icon from "@/components/Icon.astro";
 import SectionTitle from "@/components/SectionTitle.astro";
 import type { PricingData } from "@/config/landing.interface";
@@ -12,53 +11,44 @@ interface Props {
 const { data } = Astro.props;
 ---
 
-<section class="py-32 bg-white">
-  <SectionTitle>
-    {data.title}
-  </SectionTitle>
-  <div
-    class="mt-16 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 place-items-center"
-  >
+<section class="py-32 bg-gray-50 px-8 md:px-24">
+  <div class="flex flex-col gap-y-4 mb-16 max-w-2xl">
+    <p class="text-xs font-bold uppercase tracking-[0.2em] text-primary">Pricing</p>
+    <SectionTitle class="text-4xl md:text-6xl font-black tracking-tighter text-gray-900 text-left">
+      {data.title}
+    </SectionTitle>
+  </div>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
     {
-      data.tiers.map((tier) => (
-        <Card>
-          <header class="flex flex-col justify-center gap-y-3">
-            <h3 class="text-3xl text-center font-black tracking-tight text-gray-900">{tier.title}</h3>
-            <p class="text-lg text-center text-gray-900/70">{tier.description}</p>
+      data.tiers.map((tier, idx) => (
+        <div class={`flex flex-col gap-y-8 p-10 rounded-3xl border transition-all ${idx === 1 ? "bg-black text-white border-black shadow-2xl scale-105" : "bg-white text-gray-900 border-gray-100 hover:border-gray-200 hover:shadow-lg"}`}>
+          <header class="flex flex-col gap-y-2">
+            <h3 class={`text-xl font-black tracking-tight ${idx === 1 ? "text-white" : "text-gray-900"}`}>{tier.title}</h3>
+            <p class={`text-sm ${idx === 1 ? "text-white/70" : "text-gray-900/60"}`}>{tier.description}</p>
           </header>
-          <section class="flex justify-center">
-            <h4 class="text-6xl font-black text-gray-900">
-              {tier.price.amount}
-              {tier.price.period && (
-                <span class="font-semibold text-xl text-gray-900/70">
-                  {tier.price.period}
-                </span>
-              )}
-            </h4>
-          </section>
-          <section class="flex justify-start">
-            <ul class="flex flex-col gap-y-4 text-base">
-              {tier.features.map((feature) => (
-                <li class="flex flex-row px-7 gap-x-2 items-center">
-                  <span>
-                    <Icon class="w-6 h-auto text-primary" icon="CheckIcon" />
-                  </span>
-                  <p class="text-gray-900">{feature}</p>
-                </li>
-              ))}
-            </ul>
-          </section>
-          <footer class="flex justify-center">
-            <Action
-              as="a"
-              class="bg-primary text-black font-bold w-72 hover:scale-105 hover:shadow-[0_0_20px_rgba(204,255,0,0.5)] transition-all"
-              type="button"
-              href="#"
-            >
-              {tier.cta}
-            </Action>
-          </footer>
-        </Card>
+          <div class="flex items-end gap-x-1">
+            <span class={`text-5xl font-black ${idx === 1 ? "text-primary" : "text-gray-900"}`}>{tier.price.amount}</span>
+            {tier.price.period && (
+              <span class={`text-base pb-1 ${idx === 1 ? "text-white/60" : "text-gray-900/50"}`}>{tier.price.period}</span>
+            )}
+          </div>
+          <ul class="flex flex-col gap-y-3 flex-1">
+            {tier.features.map((feature) => (
+              <li class="flex items-center gap-x-3 text-sm">
+                <Icon class={`w-5 h-5 shrink-0 ${idx === 1 ? "text-primary" : "text-primary"}`} icon="CheckIcon" />
+                <span class={idx === 1 ? "text-white/80" : "text-gray-900/80"}>{feature}</span>
+              </li>
+            ))}
+          </ul>
+          <Action
+            as="a"
+            type="button"
+            class={`w-full text-center font-bold hover:scale-105 transition-all ${idx === 1 ? "bg-primary text-black hover:shadow-[0_0_20px_rgba(204,255,0,0.5)]" : "bg-gray-900 text-white hover:bg-black"}`}
+            href="#"
+          >
+            {tier.cta}
+          </Action>
+        </div>
       ))
     }
   </div>
