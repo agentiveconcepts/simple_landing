@@ -21,7 +21,7 @@ const { data } = Astro.props;
   <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
     {
       data.tiers.map((tier, idx) => (
-        <div class={`flex flex-col gap-y-8 p-10 rounded-3xl border transition-all ${idx === 1 ? "bg-black text-white border-black shadow-2xl scale-105" : "bg-white text-gray-900 border-gray-100 hover:border-gray-200 hover:shadow-lg"}`}>
+        <div class={`flex flex-col gap-y-8 p-10 rounded-none border transition-all ${idx === 1 ? "bg-black text-white border-black shadow-2xl scale-105" : "bg-white text-gray-900 border-gray-100 hover:border-gray-200 hover:shadow-lg"}`}>
           <header class="flex flex-col gap-y-2">
             <h3 class={`text-xl font-black tracking-tight ${idx === 1 ? "text-white" : "text-gray-900"}`}>{tier.title}</h3>
             <p class={`text-sm ${idx === 1 ? "text-white/70" : "text-gray-900/60"}`}>{tier.description}</p>

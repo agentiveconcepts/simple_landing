@@ -2,10 +2,7 @@
 import Layout from "@/layouts/Layout.astro";
 import Header from "@/sections/Header.astro";
 import Footer from "@/sections/Footer.astro";
-import Icon from "@/components/Icon.astro";
-import Action from "@/components/Action.astro";
 import { getLandingData } from "@/services/data.service";
-import type { Icon as IconType } from "@/config/landing.interface";
 
 const data = await getLandingData();
 const { contactData, headerData, footerData, meta } = data;
@@ -13,83 +10,103 @@ const { contactData, headerData, footerData, meta } = data;
 
 <Layout meta={{ ...meta, title: "Contact Us - Luna Landing" }}>
   <Header data={headerData} />
-  <main class="flex flex-col justify-center items-center">
-    <section class="w-full bg-black text-white py-32 mt-20 flex justify-center">
-      <div class="w-3/4 text-center">
-        <h1 class="text-5xl md:text-7xl font-black tracking-tighter leading-tight">
+  <main class="flex flex-col w-full">
+
+    <section id="contact-hero" class="w-full bg-black text-white pt-40 pb-24 px-8 md:px-24">
+      <div class="max-w-3xl">
+        <p class="text-xs font-bold uppercase tracking-[0.25em] text-primary mb-6">Contact</p>
+        <h1 class="text-5xl md:text-7xl font-black tracking-tighter leading-[0.92] mb-6">
           {contactData.hero.title}
         </h1>
-        <p class="mt-8 text-xl md:text-2xl text-white/80">
-          {contactData.hero.subTitle}
-        </p>
+        <p class="text-white/50 text-lg">{contactData.hero.subTitle}</p>
       </div>
     </section>
 
-    <section class="w-full bg-white py-32 flex justify-center">
-      <div class="w-3/4 grid md:grid-cols-2 gap-16">
-        <div class="flex flex-col gap-y-12">
-          <div>
-            <h2 class="text-3xl md:text-4xl font-black tracking-tight text-gray-900 mb-12">
-              Get in Touch
-            </h2>
-
-            <div class="flex flex-col gap-y-8">
-              <div class="flex flex-col gap-y-2">
-                <h3 class="text-sm font-bold text-gray-900/60 uppercase tracking-wider">
-                  Email
-                </h3>
-                <a
-                  href={`mailto:${contactData.info.email}`}
-                  class="text-xl md:text-2xl font-semibold text-gray-900 hover:text-primary transition-colors"
-                >
-                  {contactData.info.email}
-                </a>
-              </div>
-
-              <div class="flex flex-col gap-y-2">
-                <h3 class="text-sm font-bold text-gray-900/60 uppercase tracking-wider">
-                  Phone
-                </h3>
-                <a
-                  href={`tel:${contactData.info.phone.replace(/\s/g, '')}`}
-                  class="text-xl md:text-2xl font-semibold text-gray-900 hover:text-primary transition-colors"
-                >
-                  {contactData.info.phone}
-                </a>
-              </div>
-
-              <div class="flex flex-col gap-y-4 mt-4">
-                <h3 class="text-sm font-bold text-gray-900/60 uppercase tracking-wider">
-                  Follow Us
-                </h3>
-                <div class="flex gap-x-4">
-                  {
-                    contactData.info.socials.map((social) => (
-                      <Action
-                        as="a"
-                        href={social.href}
-                        target="_blank"
-                        class="bg-black text-white w-12 h-12 rounded-full flex items-center justify-center hover:bg-primary hover:text-black transition-all hover:scale-110"
-                        title={social.label}
-                      >
-                        <Icon icon={social.icon as IconType} />
-                      </Action>
-                    ))
-                  }
-                </div>
-              </div>
-            </div>
+    <section id="contact-cards" class="w-full bg-white px-8 md:px-24 py-0">
+      <div class="grid grid-cols-1 md:grid-cols-3 border border-gray-100">
+        <div class="flex flex-col gap-y-6 p-10 border-b md:border-b-0 md:border-r border-gray-100 group hover:bg-gray-50 transition-colors">
+          <div class="w-12 h-12 bg-black flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 text-primary">
+              <path d="M1.5 8.67v8.58a3 3 0 003 3h15a3 3 0 003-3V8.67l-8.928 5.493a3 3 0 01-3.144 0L1.5 8.67z" />
+              <path d="M22.5 6.908V6.75a3 3 0 00-3-3h-15a3 3 0 00-3 3v.158l9.714 5.978a1.5 1.5 0 001.572 0L22.5 6.908z" />
+            </svg>
           </div>
+          <div>
+            <h3 class="text-lg font-black tracking-tight text-gray-900 mb-2">Email Address</h3>
+            <a href={`mailto:${contactData.info.email}`} class="text-gray-900/60 text-sm hover:text-primary transition-colors block">
+              {contactData.info.email}
+            </a>
+          </div>
+          <a href={`mailto:${contactData.info.email}`} class="flex items-center gap-x-2 text-xs font-black uppercase tracking-widest text-gray-900/40 group-hover:text-gray-900 transition-colors mt-auto">
+            Send Message
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-3.5 h-3.5">
+              <path d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" />
+            </svg>
+          </a>
         </div>
 
-        <div class="bg-gray-50 p-10 rounded-3xl border border-gray-100 shadow-lg">
-          <form class="flex flex-col gap-y-6">
-            <div class="flex flex-col gap-y-2">
-              <label
-                for="name"
-                class="text-sm font-bold text-gray-900 uppercase tracking-wider"
-              >
-                {contactData.form.nameLabel}
+        <div class="flex flex-col gap-y-6 p-10 border-b md:border-b-0 md:border-r border-gray-100 group hover:bg-gray-50 transition-colors">
+          <div class="w-12 h-12 bg-black flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 text-primary">
+              <path fill-rule="evenodd" d="M1.5 4.5a3 3 0 013-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 01-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 006.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 011.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 01-3 3h-2.25C8.552 22.5 1.5 15.448 1.5 6.75V4.5z" clip-rule="evenodd" />
+            </svg>
+          </div>
+          <div>
+            <h3 class="text-lg font-black tracking-tight text-gray-900 mb-2">Phone Number</h3>
+            <a href={`tel:${contactData.info.phone.replace(/\s/g, '')}`} class="text-gray-900/60 text-sm hover:text-primary transition-colors block">
+              {contactData.info.phone}
+            </a>
+          </div>
+          <a href={`tel:${contactData.info.phone.replace(/\s/g, '')}`} class="flex items-center gap-x-2 text-xs font-black uppercase tracking-widest text-gray-900/40 group-hover:text-gray-900 transition-colors mt-auto">
+            Call Anytime
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-3.5 h-3.5">
+              <path d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" />
+            </svg>
+          </a>
+        </div>
+
+        <div class="flex flex-col gap-y-6 p-10 group hover:bg-gray-50 transition-colors">
+          <div class="w-12 h-12 bg-black flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 text-primary">
+              <path fill-rule="evenodd" d="M11.54 22.351l.07.04.028.016a.76.76 0 00.723 0l.028-.015.071-.041a16.975 16.975 0 001.144-.742 19.58 19.58 0 002.683-2.282c1.944-2.013 3.713-4.912 3.713-8.062A8.001 8.001 0 0012 2.187a8.001 8.001 0 00-8 7.079c0 3.15 1.769 6.049 3.713 8.062a19.585 19.585 0 002.682 2.282 16.975 16.975 0 001.145.742zM12 13.5a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd" />
+            </svg>
+          </div>
+          <div>
+            <h3 class="text-lg font-black tracking-tight text-gray-900 mb-2">Headquarters</h3>
+            <p class="text-gray-900/60 text-sm">27 Division St<br />New York, NY 10002, USA</p>
+          </div>
+          <a href="#" class="flex items-center gap-x-2 text-xs font-black uppercase tracking-widest text-gray-900/40 group-hover:text-gray-900 transition-colors mt-auto">
+            Get Direction
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-3.5 h-3.5">
+              <path d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact-form" class="w-full flex flex-col md:flex-row min-h-[640px]">
+      <div class="md:w-1/2 overflow-hidden min-h-[320px] md:min-h-0 bg-gray-100">
+        <img
+          src="https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&cs=tinysrgb&w=1200"
+          alt="Team collaborating"
+          class="w-full h-full object-cover object-center"
+        />
+      </div>
+
+      <div class="md:w-1/2 bg-primary flex flex-col justify-center px-10 py-16 md:px-16 gap-y-8">
+        <div>
+          <p class="text-xs font-bold uppercase tracking-[0.25em] text-black/50 mb-3">Drop Us a Line</p>
+          <h2 class="text-3xl md:text-4xl font-black tracking-tighter text-black leading-tight">
+            Have Any Project<br />on Your Mind?
+          </h2>
+        </div>
+
+        <form class="flex flex-col gap-y-5">
+          <div class="grid grid-cols-2 gap-5">
+            <div class="flex flex-col gap-y-1.5">
+              <label for="name" class="text-xs font-black uppercase tracking-wider text-black/60">
+                {contactData.form.nameLabel} *
               </label>
               <input
                 type="text"
@@ -97,16 +114,12 @@ const { contactData, headerData, footerData, meta } = data;
                 name="name"
                 placeholder={contactData.form.namePlaceholder}
                 required
-                class="px-6 py-4 rounded-full border-2 border-gray-200 focus:border-primary focus:outline-none transition-all text-gray-900 font-medium bg-white"
+                class="border-b-2 border-black/30 bg-transparent px-0 py-2.5 text-black placeholder-black/30 font-medium focus:border-black focus:outline-none transition-colors text-sm"
               />
             </div>
-
-            <div class="flex flex-col gap-y-2">
-              <label
-                for="email"
-                class="text-sm font-bold text-gray-900 uppercase tracking-wider"
-              >
-                {contactData.form.emailLabel}
+            <div class="flex flex-col gap-y-1.5">
+              <label for="email" class="text-xs font-black uppercase tracking-wider text-black/60">
+                {contactData.form.emailLabel} *
               </label>
               <input
                 type="email"
@@ -114,35 +127,32 @@ const { contactData, headerData, footerData, meta } = data;
                 name="email"
                 placeholder={contactData.form.emailPlaceholder}
                 required
-                class="px-6 py-4 rounded-full border-2 border-gray-200 focus:border-primary focus:outline-none transition-all text-gray-900 font-medium bg-white"
+                class="border-b-2 border-black/30 bg-transparent px-0 py-2.5 text-black placeholder-black/30 font-medium focus:border-black focus:outline-none transition-colors text-sm"
               />
             </div>
+          </div>
 
-            <div class="flex flex-col gap-y-2">
-              <label
-                for="message"
-                class="text-sm font-bold text-gray-900 uppercase tracking-wider"
-              >
-                {contactData.form.messageLabel}
-              </label>
-              <textarea
-                id="message"
-                name="message"
-                rows="6"
-                placeholder={contactData.form.messagePlaceholder}
-                required
-                class="px-6 py-4 rounded-3xl border-2 border-gray-200 focus:border-primary focus:outline-none transition-all text-gray-900 font-medium resize-none bg-white"
-              ></textarea>
-            </div>
+          <div class="flex flex-col gap-y-1.5">
+            <label for="message" class="text-xs font-black uppercase tracking-wider text-black/60">
+              {contactData.form.messageLabel} *
+            </label>
+            <textarea
+              id="message"
+              name="message"
+              rows="4"
+              placeholder={contactData.form.messagePlaceholder}
+              required
+              class="border-b-2 border-black/30 bg-transparent px-0 py-2.5 text-black placeholder-black/30 font-medium focus:border-black focus:outline-none transition-colors resize-none text-sm"
+            ></textarea>
+          </div>
 
-            <button
-              type="submit"
-              class="bg-primary text-black font-bold px-8 py-4 rounded-full hover:scale-105 hover:shadow-[0_0_20px_rgba(204,255,0,0.5)] transition-all text-lg mt-4"
-            >
-              {contactData.form.submitButton}
-            </button>
-          </form>
-        </div>
+          <button
+            type="submit"
+            class="bg-black text-white font-black uppercase tracking-widest text-sm px-10 py-4 hover:bg-gray-900 transition-colors mt-2 self-start"
+          >
+            {contactData.form.submitButton}
+          </button>
+        </form>
       </div>
     </section>
 
@@ -152,22 +162,22 @@ const { contactData, headerData, footerData, meta } = data;
 
 <style>
   @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
   }
 
-  section {
+  #contact-hero {
     opacity: 0;
-    animation: fadeIn 0.8s ease-in-out forwards;
+    animation: fadeIn 0.8s ease-out forwards;
   }
 
-  section:nth-child(2) {
-    animation-delay: 0.2s;
+  #contact-cards {
+    opacity: 0;
+    animation: fadeIn 0.8s ease-out 0.1s forwards;
+  }
+
+  #contact-form {
+    opacity: 0;
+    animation: fadeIn 0.8s ease-out 0.2s forwards;
   }
 </style>

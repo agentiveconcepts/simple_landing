@@ -27,7 +27,7 @@ const { data } = Astro.props;
     </p>
   </div>
 
-  <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-px bg-white/10 border border-white/10 rounded-3xl overflow-hidden">
+  <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-px bg-white/10 border border-white/10 rounded-none overflow-hidden">
     {
       data.services.map((service, idx) => (
         <article class={`group flex flex-col gap-y-6 p-8 bg-black hover:bg-white/5 transition-colors ${idx < data.services.length - 1 ? "" : ""}`}>

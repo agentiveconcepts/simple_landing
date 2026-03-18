@@ -47,12 +47,12 @@ const { privacyData, headerData, footerData, meta } = data;
               )}
 
               {section.items && (
-                <ul class="flex flex-col gap-y-0 border border-gray-100 rounded-3xl overflow-hidden">
+                <ul class="flex flex-col gap-y-0 border border-gray-100 overflow-hidden">
                   {section.items.map((item, i) => (
                     <li class={`flex flex-col md:flex-row gap-y-3 md:gap-x-8 p-8 ${i < section.items!.length - 1 ? "border-b border-gray-100" : ""}`}>
                       <div class="md:w-48 shrink-0">
-                        <span class="inline-flex items-center gap-x-2 bg-primary text-black text-xs font-black uppercase tracking-wider px-4 py-1.5 rounded-full">
-                          <span class="w-1.5 h-1.5 rounded-full bg-black inline-block"></span>
+                        <span class="inline-flex items-center gap-x-2 bg-primary text-black text-xs font-black uppercase tracking-wider px-4 py-1.5">
+                          <span class="w-1.5 h-1.5 bg-black inline-block"></span>
                           {item.right}
                         </span>
                       </div>
