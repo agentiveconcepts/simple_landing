@@ -1,0 +1,187 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/sections/Header.astro";
+import Footer from "@/sections/Footer.astro";
+import { getLandingData } from "@/services/data.service";
+import faqData from "../data/faq.json";
+
+const data = await getLandingData();
+const { headerData, footerData, meta } = data;
+---
+
+<Layout meta={{ ...meta, title: "FAQs — Folex Agency" }}>
+  <Header data={headerData} />
+  <main class="flex flex-col w-full">
+
+    <!-- Hero -->
+    <section class="w-full bg-black text-white pt-44 pb-28 px-8 md:px-24 border-b border-white/10">
+      <div class="max-w-6xl">
+        <p class="text-xs font-black uppercase tracking-[0.3em] text-primary mb-8">Knowledge Base</p>
+        <h1 class="text-7xl md:text-9xl font-black tracking-tighter leading-[0.85] mb-10">
+          {faqData.header.title}
+          <span class="text-primary">.</span>
+        </h1>
+        <div class="flex items-center gap-x-6">
+          <div class="w-16 h-0.5 bg-primary"></div>
+          <p class="text-white/50 text-lg md:text-xl font-medium max-w-lg">{faqData.header.subtitle}</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sticky Index + Accordions -->
+    <section class="w-full bg-white px-8 md:px-24 py-24">
+      <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-16">
+
+        <!-- Left: Sticky Index -->
+        <aside class="md:col-span-4">
+          <div class="sticky top-24">
+            <p class="text-xs font-black uppercase tracking-[0.3em] text-black/30 mb-8">Topics</p>
+            <nav class="flex flex-col gap-y-0" id="pillar-nav">
+              {faqData.pillars.map((pillar, i) => (
+                <a
+                  href={`#pillar-${i}`}
+                  data-pillar-link={i}
+                  class="pillar-link group flex items-center gap-x-4 py-5 border-b border-black/10 transition-all duration-200"
+                >
+                  <span class="text-xs font-black text-black/20 group-hover:text-primary transition-colors w-6 shrink-0">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <span class="text-2xl font-black tracking-tight text-black/40 group-hover:text-black transition-colors leading-tight">
+                    {pillar.topic}
+                  </span>
+                </a>
+              ))}
+            </nav>
+            <a
+              href="/contact"
+              class="inline-flex items-center gap-x-3 mt-12 text-xs font-black uppercase tracking-widest text-black hover:text-primary transition-colors group"
+            >
+              Still have questions?
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4 group-hover:translate-x-1 transition-transform">
+                <path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" />
+              </svg>
+            </a>
+          </div>
+        </aside>
+
+        <!-- Right: FAQ Accordions -->
+        <div class="md:col-span-8 flex flex-col gap-y-20">
+          {faqData.pillars.map((pillar, pi) => (
+            <div id={`pillar-${pi}`} class="pillar-section scroll-mt-28">
+              <h2 class="text-xs font-black uppercase tracking-[0.3em] text-primary mb-8">
+                {pillar.topic}
+              </h2>
+              <div class="flex flex-col">
+                {pillar.questions.map((item, qi) => (
+                  <details class="faq-item group border-b border-black/10 last:border-b-0" data-pillar={pi}>
+                    <summary class="flex items-start justify-between gap-x-6 py-7 cursor-pointer list-none select-none">
+                      <span class="text-lg font-bold tracking-tight text-black leading-snug group-open:font-black transition-all">
+                        {item.q}
+                      </span>
+                      <span class="shrink-0 mt-1 faq-icon transition-transform duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5 text-black/30">
+                          <path d="M10.75 4.75a.75.75 0 00-1.5 0v4.5h-4.5a.75.75 0 000 1.5h4.5v4.5a.75.75 0 001.5 0v-4.5h4.5a.75.75 0 000-1.5h-4.5v-4.5z" />
+                        </svg>
+                      </span>
+                    </summary>
+                    <div class="pb-8 pr-10">
+                      <p class="text-gray-500 leading-relaxed text-base">{item.a}</p>
+                    </div>
+                  </details>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CTA Strip -->
+    <section class="w-full bg-primary px-8 md:px-24 py-20 flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+      <div>
+        <p class="text-xs font-black uppercase tracking-[0.3em] text-black/40 mb-3">Ready to move?</p>
+        <h3 class="text-4xl md:text-5xl font-black tracking-tighter text-black leading-tight">
+          No more questions.<br />Let's build.
+        </h3>
+      </div>
+      <a
+        href="/contact"
+        class="shrink-0 bg-black text-white text-xs font-black uppercase tracking-widest px-10 py-5 hover:bg-white hover:text-black transition-colors duration-200"
+      >
+        Start a Project
+      </a>
+    </section>
+
+    <Footer data={footerData} />
+  </main>
+</Layout>
+
+<script>
+  const details = document.querySelectorAll<HTMLDetailsElement>("details.faq-item");
+
+  details.forEach((el) => {
+    el.addEventListener("toggle", () => {
+      const icon = el.querySelector(".faq-icon svg");
+      if (el.open) {
+        el.classList.add("border-l-4", "border-l-primary", "pl-5");
+        icon?.classList.add("rotate-45");
+      } else {
+        el.classList.remove("border-l-4", "border-l-primary", "pl-5");
+        icon?.classList.remove("rotate-45");
+      }
+    });
+  });
+
+  const pillarLinks = document.querySelectorAll<HTMLAnchorElement>(".pillar-link");
+  const pillarSections = document.querySelectorAll<HTMLElement>(".pillar-section");
+
+  const activateLink = (index: number) => {
+    pillarLinks.forEach((link, i) => {
+      const num = link.querySelector("span:first-child");
+      const label = link.querySelector("span:last-child");
+      if (i === index) {
+        num?.classList.replace("text-black/20", "text-primary");
+        label?.classList.replace("text-black/40", "text-black");
+      } else {
+        num?.classList.replace("text-primary", "text-black/20");
+        label?.classList.replace("text-black", "text-black/40");
+      }
+    });
+  };
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const idx = Array.from(pillarSections).indexOf(entry.target as HTMLElement);
+          if (idx !== -1) activateLink(idx);
+        }
+      });
+    },
+    { rootMargin: "-30% 0px -60% 0px" }
+  );
+
+  pillarSections.forEach((section) => observer.observe(section));
+
+  activateLink(0);
+</script>
+
+<style>
+  details.faq-item summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .border-l-primary {
+    border-left-color: #CCFF00;
+  }
+
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .pillar-section {
+    animation: fadeInUp 0.6s ease-out both;
+  }
+</style>

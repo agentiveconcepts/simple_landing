@@ -1,0 +1,59 @@
+{
+  "header": {
+    "title": "Client Intel.",
+    "subtitle": "Everything you need to know before we build."
+  },
+  "pillars": [
+    {
+      "topic": "The Process",
+      "questions": [
+        {
+          "q": "How fast do you actually deploy?",
+          "a": "We move at a different speed than most agencies. Discovery and strategy take 5–7 days. Design takes another 7–10 days. Development and QA run in parallel and ship in 2–3 weeks. Total time from kickoff to live: under 6 weeks for most engagements. We don't pad timelines to look thorough — we just execute."
+        },
+        {
+          "q": "What does your onboarding process look like?",
+          "a": "Day one you get a dedicated Slack channel, a shared Notion workspace, and a kickoff call with your lead strategist and engineer. We map out every milestone, every deliverable, and every checkpoint upfront — no surprises, no scope creep. You'll always know exactly where your project stands."
+        },
+        {
+          "q": "How many revision rounds are included?",
+          "a": "Two full revision rounds are included in every engagement. We've found that clients who give clear feedback in round one rarely need a round two. We don't nickel-and-dime you on minor tweaks — if something isn't right, we fix it. Additional rounds beyond two are billed at a flat hourly rate disclosed in your contract."
+        }
+      ]
+    },
+    {
+      "topic": "Investment & ROI",
+      "questions": [
+        {
+          "q": "What is the minimum engagement?",
+          "a": "Our baseline engagements start at $8,000. This covers a full strategy sprint, design system, and core build. We don't do $500 websites. If budget is a hard constraint, we'd rather tell you upfront and point you to a resource that fits than take your money and under-deliver."
+        },
+        {
+          "q": "Do you offer retainer packages?",
+          "a": "Yes. Retainers start at $3,500/month and cover ongoing development, CRO experiments, performance monitoring, and strategic support. Our retainer clients average a 3.2x ROI within the first 90 days. We only take on a maximum of 8 retainer clients at any given time to maintain quality."
+        },
+        {
+          "q": "How do you measure success and ROI?",
+          "a": "Before we write a single line of code, we agree on the metrics that matter: conversion rate, revenue per visitor, load time, or whatever moves the needle for your business. We build dashboards, track baselines, and report results monthly. You don't pay for outputs — you pay for outcomes."
+        }
+      ]
+    },
+    {
+      "topic": "Tech & Ownership",
+      "questions": [
+        {
+          "q": "Who owns the code and IP when we're done?",
+          "a": "You own everything. 100%. Upon final payment, all source code, design assets, and intellectual property transfer to you. No license agreements, no vendor lock-in, no subscriptions to us. We build it, you own it forever."
+        },
+        {
+          "q": "What stack do you build on?",
+          "a": "We use the right tool for the job — not a one-size-fits-all approach. Our default stack is Next.js or Astro on the frontend, Supabase or PostgreSQL on the backend, and deployed to Vercel or Cloudflare. For complex apps we bring in additional tooling. We document every architectural decision so your in-house team can maintain it without us."
+        },
+        {
+          "q": "Can we migrate our existing platform?",
+          "a": "Absolutely. We've migrated legacy WordPress sites, Webflow builds, and custom PHP apps to modern stacks. Our migration process includes a full audit, data integrity checks, SEO preservation, and zero-downtime deployment. We hand you a platform that performs — not just one that's rebuilt for the sake of it."
+        }
+      ]
+    }
+  ]
+}
