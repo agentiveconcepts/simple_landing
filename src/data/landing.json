@@ -30,7 +30,7 @@
       { "label": "Services", "href": "#" },
       { "label": "Prices", "href": "#" },
       { "label": "FAQs", "href": "#" },
-      { "label": "Blog", "href": "#" }
+      { "label": "Contact", "href": "/contact" }
     ]
   },
   "heroData": {
@@ -172,7 +172,7 @@
       { "label": "Services", "href": "/" },
       { "label": "Blog", "href": "/" },
       { "label": "FAQs", "href": "/" },
-      { "label": "Contact", "href": "/" }
+      { "label": "Contact", "href": "/contact" }
     ],
     "socials": [
       { "icon": "FacebookIcon", "href": "/" },
@@ -180,5 +180,28 @@
       { "icon": "TwitterIcon", "href": "/" },
       { "icon": "GithubIcon", "href": "/" }
     ]
+  },
+  "contactData": {
+    "hero": {
+      "title": "Let's Build the Future Together.",
+      "subTitle": "Response time: Under 12 hours."
+    },
+    "info": {
+      "email": "hello@lunalanding.com",
+      "phone": "+1 (555) 123-4567",
+      "socials": [
+        { "label": "Twitter", "icon": "TwitterIcon", "href": "https://twitter.com/lunalanding" },
+        { "label": "LinkedIn", "icon": "GithubIcon", "href": "https://linkedin.com/company/lunalanding" }
+      ]
+    },
+    "form": {
+      "nameLabel": "Name",
+      "namePlaceholder": "John Doe",
+      "emailLabel": "Email",
+      "emailPlaceholder": "john@example.com",
+      "messageLabel": "What are we building?",
+      "messagePlaceholder": "Tell us about your project...",
+      "submitButton": "Send Message"
+    }
   }
 }

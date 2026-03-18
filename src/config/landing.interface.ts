@@ -7,6 +7,7 @@ export interface LandingPageData {
   brandsData: BrandsData;
   pricingData: PricingData;
   footerData: FooterData;
+  contactData: ContactData;
 }
 
 export interface HeaderData {
@@ -114,6 +115,33 @@ export interface LdJson {
     contactType: string;
   };
   sameAs: string[];
+}
+
+export interface ContactData {
+  hero: {
+    title: string;
+    subTitle: string;
+  };
+  info: {
+    email: string;
+    phone: string;
+    socials: ContactSocial[];
+  };
+  form: {
+    nameLabel: string;
+    namePlaceholder: string;
+    emailLabel: string;
+    emailPlaceholder: string;
+    messageLabel: string;
+    messagePlaceholder: string;
+    submitButton: string;
+  };
+}
+
+export interface ContactSocial {
+  label: string;
+  icon: string;
+  href: string;
 }
 
 export type Icon =
