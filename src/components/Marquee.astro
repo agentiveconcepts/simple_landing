@@ -1,6 +1,7 @@
 ---
 interface Props {
   items?: string[];
+  dark?: boolean;
 }
 
 const { items = [
@@ -10,17 +11,17 @@ const { items = [
   "Lightning Fast Performance",
   "Fully Accessible",
   "Modern Tech Stack",
-] } = Astro.props;
+], dark = false } = Astro.props;
 
 const doubled = [...items, ...items];
 ---
 
-<div class="w-full bg-primary overflow-hidden py-4 flex items-center border-y-2 border-black">
+<div class:list={["w-full overflow-hidden py-4 flex items-center border-y-2", dark ? "bg-black border-white/10" : "bg-primary border-black"]}>
   <div class="marquee-track flex items-center gap-x-0 whitespace-nowrap">
     {doubled.map((item) => (
       <span class="flex items-center gap-x-3 pr-10">
-        <span class="w-2 h-2 bg-black inline-block shrink-0"></span>
-        <span class="text-black font-black uppercase tracking-widest text-sm">{item}</span>
+        <span class:list={["w-2 h-2 inline-block shrink-0", dark ? "bg-primary" : "bg-black"]}></span>
+        <span class:list={["font-black uppercase tracking-widest text-sm", dark ? "text-white" : "text-black"]}>{item}</span>
       </span>
     ))}
   </div>

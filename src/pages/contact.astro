@@ -2,6 +2,7 @@
 import Layout from "@/layouts/Layout.astro";
 import Header from "@/sections/Header.astro";
 import Footer from "@/sections/Footer.astro";
+import Marquee from "@/components/Marquee.astro";
 import { getLandingData } from "@/services/data.service";
 
 const data = await getLandingData();
@@ -155,6 +156,15 @@ const { contactData, headerData, footerData, meta } = data;
         </form>
       </div>
     </section>
+
+    <Marquee dark={true} items={[
+      "Let's Build Something Great",
+      "Fast Response Time",
+      "World-Class Support",
+      "Start Your Project Today",
+      "We Are Ready to Help",
+      "Get in Touch",
+    ]} />
 
     <Footer data={footerData} />
   </main>

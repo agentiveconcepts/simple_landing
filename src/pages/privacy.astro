@@ -2,6 +2,7 @@
 import Layout from "@/layouts/Layout.astro";
 import Header from "@/sections/Header.astro";
 import Footer from "@/sections/Footer.astro";
+import Marquee from "@/components/Marquee.astro";
 import { getLandingData } from "@/services/data.service";
 
 const data = await getLandingData();
@@ -91,6 +92,15 @@ const { privacyData, headerData, footerData, meta } = data;
         </a>
       </div>
     </section>
+
+    <Marquee dark={true} items={[
+      "Your Data is Your Property",
+      "Zero Dark Patterns",
+      "Full Transparency",
+      "Right to Erasure",
+      "Privacy First",
+      "We Respect Your Rights",
+    ]} />
 
     <Footer data={footerData} />
   </main>
