@@ -11,16 +11,16 @@ const { data } = Astro.props;
 
 <header
   id="navbar"
-  class="w-full transition duration-300 justify-center fixed h-20 z-50 hidden md:flex"
+  class="w-full transition duration-300 justify-center fixed h-20 z-50 hidden md:flex backdrop-blur-md bg-white/80"
 >
   <nav aria-label="Main Navigation" class="flex flex-row items-center w-3/4">
     <div class="text-nowrap">
-      <Action as="a" class="text-xl" href="#">{data.logo}</Action>
+      <Action as="a" class="text-xl font-black tracking-tighter text-black" href="#">{data.logo}</Action>
     </div>
     <ul class="flex flex-row w-full justify-center gap-x-14">
       {
         data.links.map((item) => (
-          <li class="text-lg hover:scale-110 hover:opacity-80">
+          <li class="text-base font-medium hover:scale-105 hover:text-primary transition-all">
             <Action as="a" href={item.href}>
               {item.label}
             </Action>
@@ -38,17 +38,17 @@ const { data } = Astro.props;
     if (!navbar) return;
 
     if (window.scrollY >= 20) {
-      navbar.classList.remove("border-b-transparent");
-      navbar.classList.remove("bg-transparent");
+      navbar.classList.remove("bg-white/80");
+      navbar.classList.add("bg-white/95");
       navbar.classList.add("border-b");
-      navbar.classList.add("border-b-slate-300");
-      navbar.classList.add("bg-white");
+      navbar.classList.add("border-b-gray-100");
+      navbar.classList.add("shadow-sm");
     } else {
+      navbar.classList.remove("bg-white/95");
       navbar.classList.remove("border-b");
-      navbar.classList.remove("border-b-slate-300");
-      navbar.classList.remove("bg-white");
-      navbar.classList.add("border-b-transparent");
-      navbar.classList.add("bg-transparent");
+      navbar.classList.remove("border-b-gray-100");
+      navbar.classList.remove("shadow-sm");
+      navbar.classList.add("bg-white/80");
     }
   });
 </script>

@@ -14,20 +14,20 @@ interface Props {
 const { data } = Astro.props;
 ---
 
-<section id="hero-section" class="flex justify-center mt-48 h-screen">
+<section id="hero-section" class="flex justify-center mt-0 pt-48 pb-32 h-screen bg-black text-white">
   <div class="md:w-1/2">
-    <h1 class="text-4xl text-center font-semibold md:text-6xl">
+    <h1 class="text-5xl text-center font-black tracking-tighter md:text-7xl leading-tight">
       {data.title}
       <span class="text-primary"> {data.highlightedTitle} </span>
     </h1>
-    <h2 class="mt-10 text-lg text-center opacity-80 md:text-2xl">
+    <h2 class="mt-12 text-lg text-center text-white/80 md:text-2xl leading-relaxed">
       {data.subTitle}
     </h2>
-    <div class="flex justify-evenly mt-10">
+    <div class="flex justify-evenly mt-12 gap-x-6">
       <Action
         as="a"
         type="button"
-        class="bg-black text-white"
+        class="bg-primary text-black font-bold hover:scale-105 hover:shadow-[0_0_20px_rgba(204,255,0,0.5)] transition-all"
         href="https://github.com/JimmyCamus/luna-landing"
         target="_blank"
       >
@@ -35,7 +35,7 @@ const { data } = Astro.props;
       </Action>
       <Action
         as="a"
-        class="bg-transparent text-black border border-black"
+        class="bg-transparent text-white border-2 border-white font-semibold hover:bg-white hover:text-black transition-all"
         type="button"
         href="https://github.com/JimmyCamus/luna-landing"
         target="_blank"
@@ -46,7 +46,7 @@ const { data } = Astro.props;
     <div class="flex justify-center">
       <Action
         as="a"
-        class="flex justify-center items-center animate-bounce border-2 border-transparent bg-primary text-white rounded-full w-14 h-14 mt-32 hover:bg-white hover:text-primary hover:border-primary transition"
+        class="flex justify-center items-center animate-bounce border-2 border-primary bg-primary text-black rounded-full w-14 h-14 mt-32 hover:shadow-[0_0_20px_rgba(204,255,0,0.5)] transition-all"
         href="#services-section"
         title="arrow down icon"
       >
@@ -54,7 +54,7 @@ const { data } = Astro.props;
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
-          stroke-width="1.5"
+          stroke-width="2.5"
           stroke="currentColor"
           class="w-8 h-8"
         >

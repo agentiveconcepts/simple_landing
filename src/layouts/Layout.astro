@@ -1,7 +1,6 @@
 ---
 import Background from "@/components/Background.astro";
 import type { Meta } from "@/config/landing.interface";
-import "@fontsource-variable/rubik";
 
 interface Props {
   meta: Meta;
@@ -14,7 +13,7 @@ const ldJson = JSON.stringify(meta.ldJson);
 
 <!doctype html>
 <html
-  class="scrollbar-thin scrollbar-thumb-black scrollbar-track-transparent scroll-smooth"
+  class="scrollbar-thin scrollbar-thumb-gray-800 scrollbar-track-transparent scroll-smooth"
   lang={meta.lang ?? "en"}
 >
   <head>
@@ -24,6 +23,9 @@ const ldJson = JSON.stringify(meta.ldJson);
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="canonical" href={import.meta.env.SITE} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=Outfit:wght@400;500;600;700;900&display=swap" rel="stylesheet" />
     <script type="application/ld+json" set:html={ldJson} />
   </head>
   <body class="bg-white">
@@ -34,15 +36,6 @@ const ldJson = JSON.stringify(meta.ldJson);
 
 <style is:global>
   body {
-    font-family:
-      "Rubik Variable",
-      Menlo,
-      Monaco,
-      Lucida Console,
-      Liberation Mono,
-      DejaVu Sans Mono,
-      Bitstream Vera Sans Mono,
-      Courier New,
-      monospace;
+    font-family: 'Inter', 'Outfit', system-ui, -apple-system, sans-serif;
   }
 </style>

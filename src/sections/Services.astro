@@ -14,24 +14,24 @@ interface Props {
 const { data } = Astro.props;
 ---
 
-<section id="services-section" class="flex flex-col mb-60 gap-y-28">
+<section id="services-section" class="flex flex-col py-32 gap-y-16 bg-gray-50">
   <SectionTitle>
     {data.title}
   </SectionTitle>
-  <div class="grid md:grid-cols-2 gap-y-10 justify-items-center">
+  <div class="grid md:grid-cols-2 gap-8 justify-items-center">
     {
       data.services.map((service) => (
-        <article class="flex gap-x-6 md:gap-x-12 md:w-[550px]">
+        <article class="flex flex-col gap-y-6 p-10 bg-white rounded-3xl border border-gray-100 shadow-lg hover:shadow-xl transition-shadow md:w-[550px] h-full">
           <div>
             <IconWrapper>
               <Icon icon={service.icon as IconType} />
             </IconWrapper>
           </div>
           <section>
-            <h3 class="text-xl font-medium md:text-4xl mb-3">
+            <h3 class="text-2xl font-bold tracking-tight md:text-3xl mb-4 text-gray-900">
               {service.title}
             </h3>
-            <p class="text-pretty opacity-90 md:text-lg">
+            <p class="text-pretty text-gray-900/80 md:text-lg leading-relaxed">
               {service.description}
             </p>
           </section>

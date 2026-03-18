@@ -5,9 +5,25 @@ export default {
     extend: {
       colors: {
         white: "#FFFFFF",
-        black: "#161925",
-        primary: "#1D4ED8",
-        secondary: "#0C8346",
+        black: "#000000",
+        gray: {
+          50: "#F7F7F7",
+          100: "#EEEEEE",
+          200: "#DDDDDD",
+          800: "#333333",
+          900: "#222222",
+        },
+        primary: "#CCFF00",
+        neon: "#CCFF00",
+      },
+      fontFamily: {
+        sans: ["Inter", "Outfit", "system-ui", "sans-serif"],
+      },
+      letterSpacing: {
+        tighter: "-0.05em",
+      },
+      backdropBlur: {
+        xs: "2px",
       },
     },
   },
